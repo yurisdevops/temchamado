@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "TI Chamando - Seu sistema de controle de chamados.",
+  title: "Dev Controle - Seu sistema de controle de chamados.",
   description: "Plataforma de gerenciamento dinamico de chamados de serviços",
 };
 

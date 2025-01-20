@@ -1,10 +1,10 @@
 import { Container } from "@/components/container";
-import { SubMenu } from "../components/submenu";
+import { SubMenu } from "@/components/submenu";
 import { CardCustomer } from "./components/card";
 import { redirect } from "next/navigation";
+import prismaClient from "@/lib/prisma";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
-import prismaClient from "@/lib/prisma";
 
 export default async function Customer() {
   const session = await getServerSession(authOptions);
@@ -32,6 +32,11 @@ export default async function Customer() {
               <CardCustomer key={customer.id} customer={customer} />
             ))}
           </section>
+          {customers.length === 0 && (
+            <p className="text-center text-lg font-medium mt-8">
+              Nenhum cliente cadastrado
+            </p>
+          )}
         </main>
       </Container>
     </>

@@ -52,6 +52,19 @@ export async function DELETE(request: Request) {
     );
   }
 
+  const findTicket = await prismaClient.ticket.findFirst({
+    where: {
+      customerId: userId,
+    },
+  });
+
+  if (findTicket) {
+    return NextResponse.json(
+      { error: "Não é possível deletar um cliente com tickets abertas" },
+      { status: 400 }
+    );
+  }
+
   try {
     await prismaClient.customer.delete({
       where: {

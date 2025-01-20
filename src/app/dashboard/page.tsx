@@ -1,10 +1,10 @@
 import { Container } from "@/components/container";
-import { authOptions } from "@/lib/auth";
-import { getServerSession } from "next-auth";
 
 import { redirect } from "next/navigation";
 import { TicketItem } from "./components/ticket";
-import { SubMenu } from "./components/submenu";
+import { SubMenu } from "@/components/submenu";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth";
 
 export default async function Dashboard() {
   const session = await getServerSession(authOptions);

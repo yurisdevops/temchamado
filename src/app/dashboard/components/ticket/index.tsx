@@ -6,6 +6,7 @@ import { TicketProps } from "@/utils/tickets.type";
 import { useRouter } from "next/navigation";
 import { FiCheckSquare, FiFile } from "react-icons/fi";
 import { useModalContext } from "@/providers/modal";
+import { toast } from "react-toastify";
 
 interface TicketItem {
   ticket: TicketProps;
@@ -21,7 +22,7 @@ export function TicketItem({ ticket, customer }: TicketItem) {
       await api.patch("/api/ticket", {
         id: ticket.id,
       });
-
+      toast.success("Chamado fechado com sucesso!")
       router.refresh();
     } catch (error) {
       console.error(error);

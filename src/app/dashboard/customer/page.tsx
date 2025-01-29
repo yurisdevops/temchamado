@@ -1,5 +1,5 @@
 import { Container } from "@/components/container";
-import { SubMenu } from "@/components/submenu";
+import { SubMenu } from "@/app/dashboard/components/submenu";
 import { CardCustomer } from "./components/card";
 import { redirect } from "next/navigation";
 import prismaClient from "@/lib/prisma";

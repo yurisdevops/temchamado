@@ -2,7 +2,6 @@ import { NextResponse } from "next/server";
 import { authOptions } from "@/lib/auth";
 import { getServerSession } from "next-auth";
 import prismaClient from "@/lib/prisma";
-import { redirect } from "next/navigation";
 
 //Rota de cadastro de clientes
 export async function POST(request: Request) {
@@ -34,7 +33,6 @@ export async function POST(request: Request) {
 }
 
 //Rota para deletar um cliente
-
 export async function DELETE(request: Request) {
   const session = await getServerSession(authOptions);
   if (!session || !session.user) {
@@ -76,6 +74,35 @@ export async function DELETE(request: Request) {
   } catch (error) {
     return NextResponse.json(
       { error: "Falha ao tentar deletar um cliente" },
+      { status: 400 }
+    );
+  }
+}
+
+//Rota para buscar um cliente
+export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url);
+
+  const customerEmail = searchParams.get("email");
+
+  if (!customerEmail || customerEmail === "") {
+    return NextResponse.json(
+      { error: "Falha ao tentar buscar um cliente" },
+      { status: 400 }
+    );
+  }
+
+  try {
+    const customer = await prismaClient.customer.findFirst({
+      where: {
+        email: customerEmail,
+      },
+    });
+
+    return NextResponse.json(customer);
+  } catch (error) {
+    return NextResponse.json(
+      { error: "Falha ao buscar o cliente" },
       { status: 400 }
     );
   }

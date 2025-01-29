@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/header";
 import { AuthProvider } from "@/providers/auth";
 import { ModalProvider } from "@/providers/modal";
+import { Bounce, ToastContainer } from "react-toastify";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Dev Controle - Seu sistema de controle de chamados.",
+  title: "Tem Chamado? - Seu sistema de controle de chamados.",
   description: "Plataforma de gerenciamento dinamico de chamados de serviços",
 };
 
@@ -32,6 +33,19 @@ export default function RootLayout({
       >
         <AuthProvider>
           <ModalProvider>
+            <ToastContainer
+              position="top-right"
+              autoClose={3000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick={false}
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="light"
+              transition={Bounce}
+            />
             <Header />
             {children}
           </ModalProvider>

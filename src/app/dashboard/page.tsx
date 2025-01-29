@@ -2,7 +2,7 @@ import { Container } from "@/components/container";
 import prismaClient from "@/lib/prisma";
 import { redirect } from "next/navigation";
 import { TicketItem } from "./components/ticket";
-import { SubMenu } from "@/components/submenu";
+import { SubMenu } from "@/app/dashboard/components/submenu";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 
@@ -15,8 +15,10 @@ export default async function Dashboard() {
 
   const tickets = await prismaClient.ticket.findMany({
     where: {
-      userId: session?.user.id,
       status: "ABERTO",
+      customer: {
+        userId: session?.user.id,
+      },
     },
     include: {
       customer: true,

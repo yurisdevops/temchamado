@@ -5,6 +5,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import prismaClient from "@/lib/prisma";
+import { toast } from "react-toastify";
 
 export default async function NewTicket() {
   const session = await getServerSession(authOptions);
@@ -40,6 +41,7 @@ export default async function NewTicket() {
       },
     });
 
+    toast.success("Chamado criado!")
     redirect("/dashboard");
   }
 

@@ -1,36 +1,139 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Tem Chamado?
 
-## Getting Started
+> Plataforma web para gerenciamento de chamados de serviços.
 
-First, run the development server:
+O **Tem Chamado?** é uma aplicação moderna desenvolvida com as últimas tecnologias do **Next.js**, fornecendo uma experiência eficiente para abrir e gerenciar chamados de serviços. O projeto inclui recursos avançados para a gestão de chamados, tanto para usuários autenticados quanto para visitantes.
+
+## Índice
+
+- [Descrição do Projeto](#descrição-do-projeto)
+- [Funcionalidades](#funcionalidades)
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Como Usar](#como-usar)
+- [Scripts Disponíveis](#scripts-disponíveis)
+- [Estrutura do Projeto](#estrutura-do-projeto)
+- [Contato](#contato)
+
+## Descrição do Projeto
+
+O **Tem Chamado?** permite abrir e gerenciar chamados de serviços de maneira prática. Ele oferece:
+
+- Abertura de chamados com ou sem login ativo.
+- Criação e exclusão de clientes, disponível apenas para usuários logados.
+- Abertura e fechamento de chamados.
+- Autenticação via **NextAuth** com **Google**.
+
+## Funcionalidades
+
+- **Abertura de Chamados:** Permite abrir chamados com ou sem login.
+- **Gerenciamento de Clientes:** Criação e exclusão de clientes, apenas para usuários logados.
+- **Autenticação:** Autenticação segura utilizando **NextAuth** com **Google**.
+- **Interface Moderna:** Navegação responsiva com Tailwind CSS.
+- **Validação:** Formulários validados com **Zod** e **Hook Form**.
+- **Integrações:** Utilização de **Axios** para fazer requisições HTTP.
+
+## Tecnologias Utilizadas
+
+- **Next.js:** Framework moderno para construção de aplicações web.
+- **React:** Biblioteca para construção de interfaces de usuário.
+- **NextAuth:** Biblioteca para autenticação com provedores como Google.
+- **Tailwind CSS:** Framework CSS utilitário.
+- **TypeScript:** Superconjunto de JavaScript que adiciona tipagem estática.
+- **MongoDB:** Banco de dados NoSQL flexível e escalável.
+- **Prisma:** ORM para lidar com o banco de dados.
+- **Zod:** Biblioteca para validação de esquemas.
+- **React Hook Form:** Biblioteca para criar e gerenciar formulários.
+- **Axios:** Cliente HTTP para fazer requisições.
+
+## Como Usar
+
+### 1. Clonar o Repositório
+
+```bash
+git clone https://github.com/yurisdevops/temchamado.git
+cd temchamado
+```
+
+### 2. Instalar Dependências
+
+Com `npm`:
+
+```bash
+npm install
+```
+
+Com `yarn`:
+
+```bash
+yarn install
+```
+
+### 3. Configurar as Variáveis de Ambiente
+
+Adicione as seguintes variáveis no arquivo `.env`:
+
+```env
+DATABASE_URL=mongodb+srv://<username>:<password>@cluster0.mongodb.net/temchamado?retryWrites=true&w=majority
+NODE_ENV=development
+NEXTAUTH_URL=https://temchamado.vercel.app/
+HOST_URL=https://temchamado.vercel.app/
+NEXTAUTH_SECRET=your_secret
+GOOGLE_CLIENT_ID=your_client_id
+GOOGLE_CLIENT_SECRET=your_client_secret
+```
+
+### 4. Executar o Projeto
+
+Com `npm`:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Com `yarn`:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+yarn dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Acesse a aplicação no navegador: [Tem Chamado?](https://temchamado.vercel.app/)
 
-## Learn More
+Para abrir um chamado sem estar logado: [Abrir Chamado](https://temchamado.vercel.app/open)
 
-To learn more about Next.js, take a look at the following resources:
+## Scripts Disponíveis
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **`npm run dev`**: Inicia o servidor de desenvolvimento.
+- **`npm run build`**: Gera os arquivos para produção.
+- **`npm run start`**: Inicia a aplicação em produção.
+- **`npm run lint`**: Executa o linter para verificar erros de código.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Estrutura do Projeto
 
-## Deploy on Vercel
+- **prisma** (configurações do Prisma)
+- **public** (arquivos públicos)
+- **src**
+  - **@types** (tipagens TypeScript)
+  - **app**
+    - **api**
+      - **auth** (autenticação)
+      - **customer** (clientes)
+      - **ticket** (chamados)
+    - **dashboard** (painel de controle)
+      - **components**
+        - **customer** (gerenciamento de clientes)
+        - **ticket** (gerenciamento de chamados)
+      - **open** (abrir chamado)
+    - **assets** (arquivos de mídia)
+  - **components** (componentes reutilizáveis)
+  - **lib** (bibliotecas auxiliares)
+  - **providers** (provedores de serviços)
+  - **utils** (utilitários gerais)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Contato
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Desenvolvido por [Yuri Souza](https://github.com/yurisdevops). Entre em contato para dúvidas ou sugestões!
+
+---
+
+### 🔧 **Gerencie seus chamados de serviços de maneira eficiente com Tem Chamado?**
+

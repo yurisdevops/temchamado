@@ -3,6 +3,7 @@
 > Plataforma web para gerenciamento de chamados de serviços.
 
 O **Tem Chamado?** é uma aplicação moderna desenvolvida com as últimas tecnologias do **Next.js**, fornecendo uma experiência eficiente para abrir e gerenciar chamados de serviços. O projeto inclui recursos avançados para a gestão de chamados, tanto para usuários autenticados quanto para visitantes.
+🔗 [Acesse o projeto](https://pizzamanager.vercel.app/)
 
 ## Índice
 
